@@ -36,7 +36,7 @@ function LayoutSider({className, darkTheme}: Props) {
                 LOGO
             </div>
             <Menu
-                defaultSelectedKeys={[]}
+                defaultSelectedKeys={['/']}
                 theme={darkTheme ? 'dark' : 'light'}
                 mode='inline'
                 items={items}
