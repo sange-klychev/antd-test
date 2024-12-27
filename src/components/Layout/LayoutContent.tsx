@@ -15,7 +15,7 @@ function LayoutContent({className}: Props) {
     return (
         <Content className={clsx('mx-4 mt-4', className)}>
             <div
-                className={clsx('p-6 min-h-dvh')}
+                className={clsx('p-6 min-h-full')}
                 style={{
                     backgroundColor: colorBgContainer,
                     borderRadius: borderRadiusLG

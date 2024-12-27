@@ -46,16 +46,6 @@ function AppRoutes() {
                     </GuestRoute>
                 }
             />
-            ,
-            <Route
-                path={APP_ROUTES.registration}
-                element={
-                    <Page>
-                        <Registration />
-                    </Page>
-                }
-            />
-            ,
             <Route
                 path={APP_ROUTES.resetPassword}
                 element={
@@ -64,7 +54,14 @@ function AppRoutes() {
                     </Page>
                 }
             />
-            ,
+            <Route
+                path={APP_ROUTES.registration}
+                element={
+                    <Page>
+                        <Registration />
+                    </Page>
+                }
+            />
             <Route
                 path='*'
                 element={

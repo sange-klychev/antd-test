@@ -5,6 +5,7 @@ import {
 } from '@ant-design/icons';
 import {Button, Card, Divider, Form, Input} from 'antd';
 import {clsx} from 'clsx';
+import {APP_ROUTES} from '../../routes/constants';
 import {useLogin} from './hooks';
 import {loginRules} from './validations';
 
@@ -13,7 +14,7 @@ interface Props {
 }
 
 function Login({className}: Props) {
-    const {handleLogin} = useLogin();
+    const {handleLogin, handleSignUp, handleForgotPassword} = useLogin();
     const [form] = Form.useForm();
 
     const Title = () => <div className='text-3xl text-center'>Join</div>;
@@ -60,13 +61,27 @@ function Login({className}: Props) {
                                     }
                                 />
                             </Form.Item>
-                            <Divider />
+                            <Divider className='mb-2' />
+                            <Button
+                                type='link'
+                                className='block mx-auto mb-2'
+                                onClick={handleForgotPassword}
+                            >
+                                Forgot password?
+                            </Button>
                             <Button
                                 type='primary'
-                                className='w-full'
+                                className='w-full mb-2'
                                 htmlType='submit'
                             >
                                 Sign in
+                            </Button>
+                            <Button
+                                type='link'
+                                className='block mx-auto'
+                                onClick={handleSignUp}
+                            >
+                                Sign up
                             </Button>
                         </Form>
                     </Card>

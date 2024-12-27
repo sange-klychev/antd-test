@@ -1,15 +1,16 @@
-import {Avatar, Divider, Flex, Space, Switch, theme} from 'antd';
+import {Avatar, Button, Divider, Flex, Space, Switch, theme} from 'antd';
 import {Header} from 'antd/es/layout/layout';
 import clsx from 'clsx';
-import {Moon, Sun, User} from 'lucide-react';
+import {LogOut, Moon, Sun, User} from 'lucide-react';
 import {CustomIcon} from '../ui';
 
 interface Props {
     className?: string;
     toggleTheme: VoidFunction;
+    handleLogout: VoidFunction;
 }
 
-function LayoutHeader({className, toggleTheme}: Props) {
+function LayoutHeader({className, toggleTheme, handleLogout}: Props) {
     const {
         token: {colorBgContainer}
     } = theme.useToken();
@@ -49,6 +50,16 @@ function LayoutHeader({className, toggleTheme}: Props) {
                         shape='square'
                         size={40}
                         icon={<CustomIcon icon={User} />}
+                    />
+                    <Button
+                        icon={
+                            <CustomIcon
+                                icon={LogOut}
+                                size={12}
+                            />
+                        }
+                        title='Logout'
+                        onClick={handleLogout}
                     />
                 </Space>
             </Flex>
