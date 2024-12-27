@@ -1,4 +1,8 @@
-import {LoginOutlined, UserOutlined} from '@ant-design/icons';
+import {
+    EyeInvisibleOutlined,
+    EyeTwoTone,
+    UserOutlined
+} from '@ant-design/icons';
 import {Button, Card, Divider, Form, Input} from 'antd';
 import {clsx} from 'clsx';
 import {useLogin} from './hooks';
@@ -45,9 +49,15 @@ function Login({className}: Props) {
                                 name='password'
                                 rules={loginRules.password}
                             >
-                                <Input
+                                <Input.Password
                                     placeholder='Enter password'
-                                    prefix={<LoginOutlined />}
+                                    iconRender={(visible) =>
+                                        visible ? (
+                                            <EyeTwoTone />
+                                        ) : (
+                                            <EyeInvisibleOutlined />
+                                        )
+                                    }
                                 />
                             </Form.Item>
                             <Divider />
