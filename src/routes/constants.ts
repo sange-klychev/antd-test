@@ -7,5 +7,6 @@ export const APP_ROUTES = Object.freeze({
         return urlcat(this.reports, '/testReport');
     },
     registration: '/registration',
-    resetPassword: '/resetPassword'
+    resetPassword: '/resetPassword',
+    todos: '/todos'
 });

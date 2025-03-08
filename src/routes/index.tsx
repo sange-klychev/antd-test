@@ -1,6 +1,6 @@
 import {Route, Routes} from 'react-router-dom';
 import MainLayout from '../components/Layout';
-import {Login, NotFound, Registration, ResetPassword} from '../pages';
+import {Login, NotFound, Registration, ResetPassword, Todos} from '../pages';
 import Dashboard from '../pages/Dashboard';
 import {TestReport} from '../pages/Reports';
 import {GuestRoute} from './components';
@@ -32,6 +32,14 @@ function AppRoutes() {
                     element={
                         <Page>
                             <TestReport />
+                        </Page>
+                    }
+                />
+                <Route
+                    path={APP_ROUTES.todos}
+                    element={
+                        <Page>
+                            <Todos />
                         </Page>
                     }
                 />

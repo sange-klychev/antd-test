@@ -1,11 +1,11 @@
 import {TableColumnsType, TableProps} from 'antd';
-import dayjs, {Dayjs} from 'dayjs';
+import dayjs from 'dayjs';
 import {useEffect, useState} from 'react';
-import {IData} from '../../../@types/IData';
+import {IReportItem} from '../../../@types/IReports';
 import {useRangeDateFilter} from '../../../hooks';
 import db from '../../../mock-data/db.json';
 
-type OnChange = NonNullable<TableProps<IData>['onChange']>;
+type OnChange = NonNullable<TableProps<IReportItem>['onChange']>;
 type Filters = Parameters<OnChange>[1];
 
 type GetSingle<T> = T extends (infer U)[] ? U : never;
@@ -21,7 +21,7 @@ export const useTestReport = () => {
     const [sortedInfo, setSortedInfo] = useState<Sorts>({});
 
     const data = JSON.parse(JSON.stringify(db) || '[]');
-    const [values, setValues] = useState<IData[]>(data);
+    const [values, setValues] = useState<IReportItem[]>(data);
 
     const rangeDateFilter = useRangeDateFilter();
     const {dateRange} = rangeDateFilter;
@@ -63,13 +63,13 @@ export const useTestReport = () => {
         });
     };
 
-    const columns: TableColumnsType<IData> = [
+    const columns: TableColumnsType<IReportItem> = [
         {
             title: 'First name',
             dataIndex: 'first_name',
             key: 'first_name',
             filters: unique(
-                data.map((item: IData) => ({
+                data.map((item: IReportItem) => ({
                     text: item.first_name,
                     value: item.first_name
                 }))
@@ -87,7 +87,7 @@ export const useTestReport = () => {
             dataIndex: 'last_name',
             key: 'last_name',
             filters: unique(
-                data.map((item: IData) => ({
+                data.map((item: IReportItem) => ({
                     text: item.last_name,
                     value: item.last_name
                 }))
@@ -122,7 +122,7 @@ export const useTestReport = () => {
             dataIndex: 'city',
             key: 'city',
             filters: unique(
-                data.map((item: IData) => ({
+                data.map((item: IReportItem) => ({
                     text: item.city,
                     value: item.city
                 }))
@@ -138,7 +138,7 @@ export const useTestReport = () => {
 
     useEffect(() => {
         if (dateRange.from && dateRange.to) {
-            let filtered = data.filter((item: IData) => {
+            let filtered = data.filter((item: IReportItem) => {
                 let date = dayjs(item.date);
                 return (
                     date >= dayjs(dateRange.from) && date <= dayjs(dateRange.to)

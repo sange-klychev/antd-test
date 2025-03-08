@@ -1,5 +1,5 @@
 import {Button, Flex, Space, Table} from 'antd';
-import {IData} from '../../@types/IData';
+import {IReportItem} from '../../@types/IReports';
 import {RangeDateFilter} from '../../components/filters';
 import {useTestReport} from './hooks';
 
@@ -34,7 +34,7 @@ function TestReport({className}: Props) {
                 </Space>
                 <RangeDateFilter {...rangeDateFilter} />
             </Flex>
-            <Table<IData>
+            <Table<IReportItem>
                 columns={columns}
                 dataSource={values}
                 onChange={handleChange}

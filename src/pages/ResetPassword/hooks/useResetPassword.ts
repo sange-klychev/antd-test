@@ -17,11 +17,11 @@ export const useResetPassword = (): IReturnProps => {
         const password = fields.password?.trim();
         const confirmPassword = fields.confirmPassword?.trim();
         if (email && password && confirmPassword) {
-            const users = JSON.parse(sessionStorage.getItem('users') || '[]');
+            const users = JSON.parse(localStorage.getItem('users') || '[]');
             const user = users.find((user: IUser) => user.email === email);
             if (user) {
                 user.password = password;
-                sessionStorage.setItem('users', JSON.stringify(users));
+                localStorage.setItem('users', JSON.stringify(users));
             }
             navigate(url.get('redirect') || '/');
         }

@@ -22,7 +22,7 @@ export const useLogin = (): IReturnProps => {
         const email = fields.email?.trim();
         const password = fields.password?.trim();
         if (email && password) {
-            const users = JSON.parse(sessionStorage.getItem('users') || '[]');
+            const users = JSON.parse(localStorage.getItem('users') || '[]');
             const user = users.find((user: IUser) => user.email === email);
             if (user) {
                 if (user.password === password) {

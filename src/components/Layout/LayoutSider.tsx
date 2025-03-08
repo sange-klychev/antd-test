@@ -2,6 +2,7 @@ import {Menu} from 'antd';
 import Sider from 'antd/es/layout/Sider';
 import clsx from 'clsx';
 import {useState} from 'react';
+import {isMobile} from 'react-device-detect';
 import {useNavigate} from 'react-router-dom';
 import items from './items';
 
@@ -12,7 +13,7 @@ interface Props {
 
 function LayoutSider({className, darkTheme}: Props) {
     const navigate = useNavigate();
-    const [collapsed, setCollapsed] = useState(false);
+    const [collapsed, setCollapsed] = useState(isMobile);
 
     const handleSelect = ({key}: {key: string}) => navigate(key);
 

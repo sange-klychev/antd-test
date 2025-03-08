@@ -1,4 +1,8 @@
-import {HomeOutlined, SolutionOutlined} from '@ant-design/icons';
+import {
+    HomeOutlined,
+    ProfileOutlined,
+    SolutionOutlined
+} from '@ant-design/icons';
 import {MenuProps} from 'antd';
 import {Key, ReactNode} from 'react';
 import {APP_ROUTES} from '../../routes/constants';
@@ -21,7 +25,8 @@ function getItem(
 
 const items: MenuItem[] = [
     getItem('Главная', '/', <HomeOutlined />),
-    getItem('Отчет', APP_ROUTES.testReport(), <SolutionOutlined />)
+    getItem('Отчет', APP_ROUTES.testReport(), <SolutionOutlined />),
+    getItem('Задачи', APP_ROUTES.todos, <ProfileOutlined />)
 ];
 
 export default items;

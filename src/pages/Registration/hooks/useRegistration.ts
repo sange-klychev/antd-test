@@ -18,9 +18,9 @@ export const useRegistration = (): IReturnProps => {
         const password = fields.password?.trim();
         const confirmPassword = fields.confirmPassword?.trim();
         if (email && name && password && confirmPassword) {
-            const users = JSON.parse(sessionStorage.getItem('users') || '[]');
+            const users = JSON.parse(localStorage.getItem('users') || '[]');
             users.push({name, email, password, session: uuidv4()});
-            sessionStorage.setItem('users', JSON.stringify(users));
+            localStorage.setItem('users', JSON.stringify(users));
             navigate(url.get('redirect') || '/');
         }
     };
